@@ -49,9 +49,10 @@ Partial Class frmMain
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(13, 179)
+        Me.Label3.Location = New System.Drawing.Point(17, 220)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(124, 25)
+        Me.Label3.Size = New System.Drawing.Size(157, 31)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "PHYSICAL"
         '
@@ -60,9 +61,10 @@ Partial Class frmMain
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(13, 504)
+        Me.Label2.Location = New System.Drawing.Point(17, 620)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(589, 25)
+        Me.Label2.Size = New System.Drawing.Size(747, 31)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "WIRELESS DEVICES (SMARTPHONE - TABLET - MIFI)"
         '
@@ -71,18 +73,22 @@ Partial Class frmMain
         Me.dgAM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgAM.BackgroundColor = System.Drawing.Color.SkyBlue
         Me.dgAM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgAM.Location = New System.Drawing.Point(12, 210)
+        Me.dgAM.Location = New System.Drawing.Point(16, 258)
+        Me.dgAM.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgAM.Name = "dgAM"
-        Me.dgAM.Size = New System.Drawing.Size(1073, 127)
+        Me.dgAM.RowHeadersWidth = 51
+        Me.dgAM.Size = New System.Drawing.Size(1431, 156)
         Me.dgAM.TabIndex = 11
         '
         'dgUser
         '
         Me.dgUser.BackgroundColor = System.Drawing.Color.DodgerBlue
         Me.dgUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgUser.Location = New System.Drawing.Point(18, 532)
+        Me.dgUser.Location = New System.Drawing.Point(24, 655)
+        Me.dgUser.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgUser.Name = "dgUser"
-        Me.dgUser.Size = New System.Drawing.Size(1067, 131)
+        Me.dgUser.RowHeadersWidth = 51
+        Me.dgUser.Size = New System.Drawing.Size(1423, 161)
         Me.dgUser.TabIndex = 10
         '
         'Label1
@@ -90,18 +96,20 @@ Partial Class frmMain
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(90, 107)
+        Me.Label1.Location = New System.Drawing.Point(120, 132)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 24)
+        Me.Label1.Size = New System.Drawing.Size(115, 29)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "USER ID"
         '
         'txtID
         '
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID.Location = New System.Drawing.Point(186, 107)
+        Me.txtID.Location = New System.Drawing.Point(248, 132)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(121, 29)
+        Me.txtID.Size = New System.Drawing.Size(160, 34)
         Me.txtID.TabIndex = 8
         '
         'btnDiscover
@@ -109,9 +117,10 @@ Partial Class frmMain
         Me.btnDiscover.BackColor = System.Drawing.Color.ForestGreen
         Me.btnDiscover.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDiscover.ForeColor = System.Drawing.Color.White
-        Me.btnDiscover.Location = New System.Drawing.Point(313, 105)
+        Me.btnDiscover.Location = New System.Drawing.Point(417, 129)
+        Me.btnDiscover.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnDiscover.Name = "btnDiscover"
-        Me.btnDiscover.Size = New System.Drawing.Size(159, 34)
+        Me.btnDiscover.Size = New System.Drawing.Size(212, 42)
         Me.btnDiscover.TabIndex = 7
         Me.btnDiscover.Text = "DISCOVER"
         Me.btnDiscover.UseVisualStyleBackColor = False
@@ -121,36 +130,40 @@ Partial Class frmMain
         Me.btnPrint.BackColor = System.Drawing.Color.Chartreuse
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.Image = Global.DAT.My.Resources.Resources.Printer
-        Me.btnPrint.Location = New System.Drawing.Point(883, 104)
+        Me.btnPrint.Location = New System.Drawing.Point(1177, 128)
+        Me.btnPrint.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(105, 84)
+        Me.btnPrint.Size = New System.Drawing.Size(140, 103)
         Me.btnPrint.TabIndex = 15
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'btnExcel
         '
         Me.btnExcel.Image = Global.DAT.My.Resources.Resources.Excel
-        Me.btnExcel.Location = New System.Drawing.Point(913, 24)
+        Me.btnExcel.Location = New System.Drawing.Point(1217, 30)
+        Me.btnExcel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnExcel.Name = "btnExcel"
-        Me.btnExcel.Size = New System.Drawing.Size(48, 37)
+        Me.btnExcel.Size = New System.Drawing.Size(64, 46)
         Me.btnExcel.TabIndex = 16
         Me.btnExcel.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.DAT.My.Resources.Resources.Asset
-        Me.PictureBox2.Location = New System.Drawing.Point(492, 21)
+        Me.PictureBox2.Location = New System.Drawing.Point(656, 26)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(230, 183)
+        Me.PictureBox2.Size = New System.Drawing.Size(307, 225)
         Me.PictureBox2.TabIndex = 14
         Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.DAT.My.Resources.Resources.hn200x40dbtp1
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 15)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(202, 49)
+        Me.PictureBox1.Size = New System.Drawing.Size(269, 60)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -161,20 +174,22 @@ Partial Class frmMain
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(998, 680)
+        Me.Label4.Location = New System.Drawing.Point(1331, 837)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(87, 13)
+        Me.Label4.Size = New System.Drawing.Size(113, 17)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "V Kace.11.21.19"
+        Me.Label4.Text = "V Kace.01.30.20"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(13, 340)
+        Me.Label5.Location = New System.Drawing.Point(17, 418)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(107, 25)
+        Me.Label5.Size = New System.Drawing.Size(137, 31)
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "VIRTUAL"
         '
@@ -183,17 +198,19 @@ Partial Class frmMain
         Me.dgVirt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgVirt.BackgroundColor = System.Drawing.Color.LightSteelBlue
         Me.dgVirt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgVirt.Location = New System.Drawing.Point(12, 371)
+        Me.dgVirt.Location = New System.Drawing.Point(16, 457)
+        Me.dgVirt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgVirt.Name = "dgVirt"
-        Me.dgVirt.Size = New System.Drawing.Size(1073, 130)
+        Me.dgVirt.RowHeadersWidth = 51
+        Me.dgVirt.Size = New System.Drawing.Size(1431, 160)
         Me.dgVirt.TabIndex = 18
         '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1089, 702)
+        Me.ClientSize = New System.Drawing.Size(1452, 864)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.dgVirt)
         Me.Controls.Add(Me.Label4)
@@ -208,6 +225,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.btnDiscover)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmMain"
         Me.Text = "DAT"
         CType(Me.dgAM, System.ComponentModel.ISupportInitialize).EndInit()

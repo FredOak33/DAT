@@ -15,11 +15,50 @@ Public Class frmMain
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        ConvertCSVToDataSet("S:\Corp\DAT\VZW_HN_Report.csv")
+        'Added new lines to test the date of the VZW_HN
+        'If it hasn't been created today create a new one
+        'If it has already been created today use the current one
+
+        Dim strLastModified As String
+        'Date Last Created
+        strLastModified = System.IO.File.GetLastWriteTime("S:\Corp\DAT\VZW_HN.csv").ToShortDateString()
+
+        If strLastModified <> Today Then
+            'If VZW_HN is an older file create a new one from VZW_HN_Report.csv
+            ConvertCSVToDataSet("S:\Corp\DAT\VZW_HN_Report.csv")
+        Else
+            'If the file is from today, use VZW_HN.csv
+            csvToDatatable_2("S:\Corp\DAT\VZW_HN.csv", ",")
+        End If
+
         btnDiscover.Text = "DISCOVER"
 
     End Sub
-
+    Public Function csvToDatatable_2(ByVal filename As String, ByVal separator As String)
+        Dim dt As New System.Data.DataTable
+        Dim firstLine As Boolean = True
+        If IO.File.Exists(filename) Then
+            Using sr As New StreamReader(filename)
+                While Not sr.EndOfStream
+                    If firstLine Then
+                        firstLine = False
+                        Dim cols = sr.ReadLine.Split(separator)
+                        For Each col In cols
+                            dt.Columns.Add(New DataColumn(col, GetType(String)))
+                        Next
+                    Else
+                        Dim data() As String = sr.ReadLine.Split(separator)
+                        For i = 0 To 27
+                            data(i) = data(i).Replace("""", "")
+                        Next
+                        dt.Rows.Add(data.ToArray)
+                    End If
+                End While
+            End Using
+        End If
+        bsUser.DataSource = dt
+        Return dt
+    End Function
     Private Sub BtnDiscover_Click(sender As Object, e As EventArgs) Handles btnDiscover.Click
 
         Dim SSql As String = ""
@@ -373,7 +412,27 @@ Public Class frmMain
             dset.Tables("User").Rows.Add(dr2)
         Next
         '=======================================================================================================================================
-
+        'Virtual
+        '=======================================================================================================================================
+        If ((dgVirt.Columns.Count = 0) Or (dgVirt.Rows.Count = 0)) Then
+            Exit Sub
+        End If
+        'add table to dataset
+        dset.Tables.Add("Virtual")
+        'add column to that table
+        For i As Integer = 0 To dgVirt.ColumnCount - 1
+            dset.Tables("Virtual").Columns.Add(dgVirt.Columns(i).HeaderText)
+        Next
+        'add rows to the table
+        Dim dr3 As DataRow
+        For i As Integer = 0 To dgVirt.RowCount - 1
+            dr3 = dset.Tables("Virtual").NewRow
+            For j As Integer = 0 To dgVirt.Columns.Count - 1
+                dr3(j) = dgVirt.Rows(i).Cells(j).Value
+            Next
+            dset.Tables("Virtual").Rows.Add(dr3)
+        Next
+        '=======================================================================================================================================
 
         Dim excel = CreateObject("Excel.Application")
         Dim wBook = excel.Workbooks.Add
@@ -381,6 +440,7 @@ Public Class frmMain
         Dim dt As System.Data.DataTable = dset.Tables(0)
         Dim dt2 As System.Data.DataTable = dset.Tables("User")
         Dim dt3 As System.Data.DataTable = dset.Tables("AM")
+        Dim dt4 As System.Data.DataTable = dset.Tables("Virtual")
         Dim dc As System.Data.DataColumn
         Dim dr As System.Data.DataRow
         Dim colIndex As Integer = 0
@@ -416,6 +476,24 @@ Public Class frmMain
             R = R + 1
             colIndex = 0
             For Each dc In dt2.Columns
+                colIndex = colIndex + 1
+                excel.Cells(rowIndex + 1, colIndex) = dr(dc.ColumnName)
+            Next
+        Next
+
+        'Populate worksheet with Virtual Data 
+        R = R + 1
+        colIndex = 0
+        For Each dc In dt4.Columns
+            colIndex = colIndex + 1
+            excel.Cells(R, colIndex) = dc.ColumnName
+        Next
+        rowIndex = R - 1
+        For Each dr In dt4.Rows
+            rowIndex = rowIndex + 1
+            R = R + 1
+            colIndex = 0
+            For Each dc In dt4.Columns
                 colIndex = colIndex + 1
                 excel.Cells(rowIndex + 1, colIndex) = dr(dc.ColumnName)
             Next
@@ -532,7 +610,7 @@ Public Class frmMain
         mydataSet.Tables("Device").Columns.Add("USER_NAME2").SetOrdinal(14)
         mydataSet.Tables("Device").Columns.Add("USER_LOGGED2").SetOrdinal(15)
         mydataSet.Tables("Device").Columns.Add("MAC2").SetOrdinal(16)
-        mydataSet.Tables("Virt").Columns.Add("USER_LOGGED3").SetOrdinal(17)
+        mydataSet.Tables("Device").Columns.Add("USER_LOGGED3").SetOrdinal(17)
         Try
             Using Parser As New TextFieldParser(filetable)
                 Parser.TextFieldType = FileIO.FieldType.Delimited
